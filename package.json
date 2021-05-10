@@ -1,7 +1,7 @@
 {
   "name": "benjbox",
   "description": "Benjbox game",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "start": "node server.js"
   },
