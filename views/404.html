@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/404.css') }}">
+    <title>Server - Page Not Found</title>
+</head>
+    <body>
+        <h1 class="Headline">Uh Oh :(</h1>
+        <p>We didn't find a page here. Are you sure you entered the correct url?</p>
+        <button onClick="back()" class="backbutton">Go Back</button>
+        
+    </body>
+    <script>
+        function back()
+        {
+            window.history.back();
+        }
+    </script>
+</html>

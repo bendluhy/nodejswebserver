@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+    <title>User - {{ User }}</title>
+    <style>
+.logout
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: black;
+    border-width: 3px;
+}
+.logout:hover
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: red;
+    border-width: 3px;
+}
+    </style>
+</head>
+    <body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+<script src="{{url_for('static', filename='scripts/home.js')}}"></script>
+     <!--https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDV0EfJ2DtxAKVG2Pb3ZeMzNQ0NiNpuvZQ",
+        authDomain: "benji-s-webserver-database.firebaseapp.com",
+        projectId: "benji-s-webserver-database",
+        storageBucket: "benji-s-webserver-database.appspot.com",
+        messagingSenderId: "521414194806",
+        appId: "1:521414194806:web:6530d3b3b96909412f1157",
+        measurementId: "G-K2BKVM8YED"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+        <h1 class="Headline">{{ User }} - Home</h1>
+
+        <p>Hello, {{ Nickname }}!</p>
+        <button onClick="location.href = '/'">Home</button>
+        <button onClick="location.href = '/blackjack'">Blackjack</button>
+        <h2>Account Details</h2>
+        <p>Nickname -> {{ Nickname }}</p>
+        <p>Username -> {{ User }}</p>
+        <p>Account Balance -> {{ Balance }} Benjcoins</p>
+        <p>Access -> {{ Access }} </p>
+        <form action="" method="POST">
+            <input class="logout" type="submit" value="Logout">
+        </form>
+    </body>
+</html>

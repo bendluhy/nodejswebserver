@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/login.css') }}">
+    <title>Server - Song Request</title>
+</head>
+    <body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <h1 class="Headline">Submit A Song Request</h1>
+
+        <form action="" method="POST">
+            <p>Song Name</p>
+            <input name="song">
+            <p>Song Link (Optional)</p>
+            <input name="songLink">
+            <p>Song Artist(Optional)</p>
+            <input name="artist">
+            <br>
+            <br>
+            <input class="login" type="submit" value="Request">
+            <br>
+            <br>
+            
+        </form>
+        <button onClick="window.location.href = '/'">Home</button>
+        
+    </body>
+</html>

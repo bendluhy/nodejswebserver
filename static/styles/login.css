@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+*
+{
+    font-family: 'Nunito', sans-serif;
+    
+}
+.signuplink
+{
+    font-size: 13px;
+}
+.Headline
+{
+    font-family: 'Nunito', sans-serif;
+    border-bottom: solid 2px;
+}
+button
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: black;
+    border-width: 3px;
+}
+button:hover
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: blue;
+    border-width: 3px;
+}
+.login
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: black;
+    border-width: 3px;
+}
+.login:hover
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: blue;
+    border-width: 3px;
+}

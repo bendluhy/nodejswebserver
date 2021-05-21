@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/icon.png">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "/styles/home.css">
+    <title>Server - Home</title>
+</head>
+    <body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/scripts/home.js"></script>
+     <!--https://firebase.google.com/docs/web/setup#available-libraries -->
+        <h1 class="Headline">Welcome</h1>
+        
+        <p>Welcome to Benji's Web Server</p>
+        <p>Annoucement: {{ announcement }}</p>
+        <p>Progress Message: {{ Message }}</p>
+        <button onClick="window.location.href = '/login'">Login</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/user/home'">Account</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/music'">Music</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/games'">Game Section</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/dev'">For Developers</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/blackjack'">Blackjack(In Work)</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/reporterror'">Report An Error</button>
+        <br>
+        <br>
+        <button onClick="window.location.href = '/about'">About</button>
+    </body>
+</html>

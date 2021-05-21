@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/about.css') }}">
+    <title>Server - About</title>
+</head>
+    <body>
+        <h1 class="Headline">About</h1>
+        <h2>Bio</h2>
+        <p>I made this site to be a website I could mess around and learn web development. I plan to add a chat and add games to this site instead of links to unblocked game sites</p>
+        <br>
+        <p>Created 5/2/2021 by Ben Dluhy</p>
+        <h2>Code</h2>
+        <p>Uses python with flask framework, html, css and javascript.</p>
+        <p>As of {{ date }} source code is not public.</p>
+        <button onClick="window.location.href = '/'">Home</button>
+
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/login.css') }}">
+    <script src="{{url_for('static', filename='scripts/login.js')}}"></script>
+    <title>Server - Login</title>
+</head>
+    <body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+     <!--https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDV0EfJ2DtxAKVG2Pb3ZeMzNQ0NiNpuvZQ",
+        authDomain: "benji-s-webserver-database.firebaseapp.com",
+        projectId: "benji-s-webserver-database",
+        storageBucket: "benji-s-webserver-database.appspot.com",
+        messagingSenderId: "521414194806",
+        appId: "1:521414194806:web:6530d3b3b96909412f1157",
+        measurementId: "G-K2BKVM8YED"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+        <h1 class="Headline">Login</h1>
+        
+        
+        <form action="" method="POST">
+            <p>Username</p>
+            <input name="username">
+            <p>Password</p>
+            <input name="password" type="password">
+            <br>
+            <a class="signuplink" href="/signup">Dont Have An Account? Create One Here!</a>
+            <br>
+            <input class="login" type="submit" name="login" value="Login">
+        </form>
+        <br>
+        <br>
+        <button onClick="location.href = '/'">Home</button>
+    </body>
+    <script>
+        function login()
+        {
+            var username;
+            var password;
+        }
+    </script>
+</html>

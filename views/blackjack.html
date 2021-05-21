@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Blackjack</title>
+       <script
+  src="https://code.jquery.com/jquery-3.2.0.slim.min.js"
+  integrity="sha256-qLAv0kBAihcHZLI3fv3WITKeRsUX27hd6upBBa0MSow="
+  crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <link rel="icon" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip.png">
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+        <script src="/scripts/blackjack.js"></script>
+
+
+        <link rel= "stylesheet" type= "text/css" href= "/styles/blackjack.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/poker_logo2.png" alt="Poker Logo" id="poker">
+            <h1>BLACKJACK</h1>
+        </div>
+        <div id="table">
+          <div id="messages">
+              <h2>Let's Play!</h2>
+          </div>
+
+          <label id="dealer-label">Dealer: </label>
+          <div id="dealer-hand" class="hand">
+
+          </div>
+
+          <label id="player-label">Player: </label>
+          <div id="player-hand" class="hand">
+
+          </div>
+
+          <div class="buttons">
+            <button id="deal-button" class="disabled">Deal</button>
+            <button id="doubledown" class="disabled">Double Down</button>
+            <button id="hit-button" class="disabled">Hit</button>
+            <button id="stand-button" class="disabled">Stand</button>
+            
+          </div>
+          <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button id="leave" class="leave">Leave And Take Earnings</button>
+        </div>
+    <div class="betting">
+            <div class="bet-square">
+                <p>Bet </p>
+                <p id="bet">$0</p>
+            </div>
+            <div class="pot-square">
+                <p>Chips</p>
+                <p id="pot">$500</p>
+            </div>
+
+            <div class="chips">
+                <div id="five">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip-5.png" alt="Poker Chip 5 value">
+                </div>
+                <div id="ten">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip-7.png" alt="Poker Chip 10 value">
+                </div>
+                <div id="fifteen">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip-4.png" alt="Poker Chip 15 value">
+                </div>
+                <div id="fifty">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip-3.png" alt="Poker Chip 50 value">
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+
+
+</html>

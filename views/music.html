@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/music.css') }}">
+    <title>Server - Music</title>
+</head>
+    <body>
+        <h1 class="Headline">Music</h1>
+
+        <p>Click below to request a song (Must be logged in)</p>
+        <button onClick="window.location.href = '/music/request'">Request a song</button>
+        <p>To stop a song just click it again.</p>
+        <p>Volume</p>
+        <input id="volume" type="range" min="1" max="100" value="50">
+        <br>
+        <br>
+        <button onClick="window.location.href = '/'">Home</button>
+        <br>
+        <br>
+        <button onClick="play('indianPanini')">Indian Panini</button>
+        <br>
+        <br>
+        <button onClick="play('indianMontero')">Indian Montero(PUBG With My Friends)</button>
+        <br>
+        <br>
+        <button onClick="play('sickomodesoundfx')">Sicko Mode Starting Sound</button>
+        <br>
+        <br>
+        <button onClick="play('dora')">Dora Theme Song</button>
+        <br>
+        <br>
+        <button onClick="play('nevergonnagiveyouup')">Never Gonna Give You Up</button>
+        <br>
+        <br>
+        <button onClick="play('letsgoobassboosted')">Let's Go (bass boosted)</button>
+        <br>
+        <br>
+        <button onClick="play('monstersinctheme')">Monster's Inc Theme (Takes a few seconds to start)</button>
+        <br>
+        <br>
+        <button onClick="play('beatit')">Beat it</button>
+        <br>
+        <br>
+        <button onClick="play('peepeepoopoo')">Pee Pee Poo Poo</button>
+        <br>
+        <br>
+        <button onClick="play('shreksophone')">Shreksophone</button>
+        <br>
+        <br>
+        <button onClick="play('beannz')">She made beannnz</button>
+        <br>
+        <br>
+        <button onClick="play('thomasthetank')">Thomas The Tank (Earape)</button>
+        <br>
+        <br>
+        <button onClick="play('monsterincbassboosted')">Monsters Inc (Bass Boosted)</button>
+        <br>
+        <br>
+        <button onClick="play('homeflow')">Homo Flow(Requested By Colin)</button>
+
+    </body>
+<script>
+        document.getElementById("volume").value = 100;
+        var indianPanini = new Audio("{{ url_for('static',filename='audio/indianPanini.mp3') }}");
+        var indianMontero = new Audio("{{ url_for('static',filename='audio/indianmontero.mp3') }}")
+        var dora = new Audio("{{ url_for('static',filename='audio/dora.mp3') }}")
+        var sickmodestart = new Audio("{{ url_for('static',filename='audio/sickomodesoundfx.mp3') }}")
+        var nevergonnagiveyouup = new Audio(("{{ url_for('static',filename='audio/nevergonnagiveyouup.mp3') }}"))
+        var letsgoobassboosted = new Audio(("{{ url_for('static',filename='audio/letsgoo(bass boosted).mp3') }}"))
+        var monstersinctheme = new Audio(("{{ url_for('static',filename='audio/Monsters Inc theme (full).mp3') }}"))
+        var beatit = new Audio(("{{ url_for('static',filename='audio/beatit.mp3') }}"))
+        var peepeepoopoo = new Audio(("{{ url_for('static',filename='audio/peepeepoopoo.mp3') }}"))
+        var shreksophone = new Audio(("{{ url_for('static',filename='audio/Shreksophone.mp3') }}"))
+        var beannz = new Audio(("{{ url_for('static',filename='audio/beannz.mp3') }}"))
+        var thomasthetank = new Audio(("{{ url_for('static',filename='audio/thomasthetank(earape).mp3') }}"))
+        var monsterincbassboosted = new Audio(("{{ url_for('static',filename='audio/monster inc(bass boosted).mp3') }}"))
+        var homeflow = new Audio(("{{ url_for('static',filename='audio/homeflow.mp3') }}"))
+
+
+
+        function play(song)
+        {
+            switch(song)
+            {
+                
+                case "indianPanini":
+                {
+                    indianPanini.volume = document.getElementById("volume").value / 100
+                    if (indianPanini.currentTime > 0)
+                    {
+                        indianPanini.currentTime = 0;
+                        indianPanini.pause();
+                    }
+                    else
+                    {
+                        indianPanini.play();
+                    }
+                    break; 
+                
+                }
+                
+                case "indianMontero":
+                {
+                    indianMontero.volume = document.getElementById("volume").value / 100
+                    if (indianMontero.currentTime > 0)
+                    {
+                        indianMontero.currentTime = 0;
+                        indianMontero.pause();
+                    }
+                    else
+                    {
+                        indianMontero.play();
+                    }
+                    break; 
+                }
+                case "dora":
+                {
+                    dora.volume = document.getElementById("volume").value / 100
+                    if (dora.currentTime > 0)
+                    {
+                        dora.currentTime = 0;
+                        dora.pause();
+                    }
+                    else
+                    {
+                        dora.play();
+                    }
+                    break; 
+                }
+                
+                case "sickomodesoundfx":
+                    {
+                        sickmodestart.volume = document.getElementById("volume").value / 100
+                        if (sickmodestart.currentTime > 0)
+                        {
+                            sickmodestart.currentTime = 0;
+                            sickmodestart.pause();
+                        }
+                        else
+                        {
+                            sickmodestart.play();
+                        }
+                        break; 
+                    }
+                    case "nevergonnagiveyouup":
+                    {
+                        nevergonnagiveyouup.volume = document.getElementById("volume").value / 100
+                        if (nevergonnagiveyouup.currentTime > 0)
+                        {
+                            nevergonnagiveyouup.currentTime = 0;
+                            nevergonnagiveyouup.pause();
+                        }
+                        else
+                        {
+                            nevergonnagiveyouup.play();
+                        }
+                        break; 
+                    }
+                    case "letsgoobassboosted":
+                    {
+                        letsgoobassboosted.volume = document.getElementById("volume").value / 100
+                        if (letsgoobassboosted.currentTime > 0)
+                        {
+                            letsgoobassboosted.currentTime = 0;
+                            letsgoobassboosted.pause();
+                        }
+                        else
+                        {
+                            letsgoobassboosted.play();
+                        }
+                        break; 
+                    }
+                    case "monstersinctheme":
+                    {
+                        monstersinctheme.volume = document.getElementById("volume").value / 100
+                        if (monstersinctheme.currentTime > 0)
+                        {
+                            monstersinctheme.currentTime = 0;
+                            monstersinctheme.pause();
+                        }
+                        else
+                        {
+                            monstersinctheme.play();
+                        }
+                        break; 
+                    }
+                    case "beatit":
+                    {
+                        beatit.volume = document.getElementById("volume").value / 100
+                        if (beatit.currentTime > 0)
+                        {
+                            beatit.currentTime = 0;
+                            beatit.pause();
+                        }
+                        else
+                        {
+                            beatit.play();
+                        }
+                        break; 
+                    }
+                    case "peepeepoopoo":
+                    {
+                        peepeepoopoo.volume = document.getElementById("volume").value / 100
+                        if (peepeepoopoo.currentTime > 0)
+                        {
+                            peepeepoopoo.currentTime = 0;
+                            peepeepoopoo.pause();
+                        }
+                        else
+                        {
+                            peepeepoopoo.play();
+                        }
+                        break; 
+                    }
+                    case "shreksophone":
+                    {
+                        shreksophone.volume = document.getElementById("volume").value / 100
+                        if (shreksophone.currentTime > 0)
+                        {
+                            shreksophone.currentTime = 0;
+                            shreksophone.pause();
+                        }
+                        else
+                        {
+                            shreksophone.play();
+                        }
+                        break; 
+                    }
+                    case "beannz":
+                    {
+                        beannz.volume = document.getElementById("volume").value / 100
+                        if (beannz.currentTime > 0)
+                        {
+                            beannz.currentTime = 0;
+                            beannz.pause();
+                        }
+                        else
+                        {
+                            beannz.play();
+                        }
+                        break; 
+                    }
+                    case "thomasthetank":
+                    {
+                        thomasthetank.volume = document.getElementById("volume").value / 100
+                        if (thomasthetank.currentTime > 0)
+                        {
+                            thomasthetank.currentTime = 0;
+                            thomasthetank.pause();
+                        }
+                        else
+                        {
+                            thomasthetank.play();
+                        }
+                        break; 
+                    }
+                    case "monsterincbassboosted":
+                    {
+                        monsterincbassboosted.volume = document.getElementById("volume").value / 100
+                        if (monsterincbassboosted.currentTime > 0)
+                        {
+                            monsterincbassboosted.currentTime = 0;
+                            monsterincbassboosted.pause();
+                        }
+                        else
+                        {
+                            monsterincbassboosted.play();
+                        }
+                        break; 
+                    }
+                    case "homeflow":
+                    {
+                        homeflow.volume = document.getElementById("volume").value / 100
+                        if (homeflow.currentTime > 0)
+                        {
+                            homeflow.currentTime = 0;
+                            homeflow.pause();
+                        }
+                        else
+                        {
+                            homeflow.play();
+                        }
+                        break; 
+                    }
+            }
+        }
+</script>
+</html>
