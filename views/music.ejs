@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <link rel="icon" href="/images/icon.png">
     <meta charset="UTF-8">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/music.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "/styles/music.css">
     <title>Server - Music</title>
 </head>
     <body>
@@ -64,20 +64,21 @@
     </body>
 <script>
         document.getElementById("volume").value = 100;
-        var indianPanini = new Audio("{{ url_for('static',filename='audio/indianPanini.mp3') }}");
-        var indianMontero = new Audio("{{ url_for('static',filename='audio/indianmontero.mp3') }}")
-        var dora = new Audio("{{ url_for('static',filename='audio/dora.mp3') }}")
-        var sickmodestart = new Audio("{{ url_for('static',filename='audio/sickomodesoundfx.mp3') }}")
-        var nevergonnagiveyouup = new Audio(("{{ url_for('static',filename='audio/nevergonnagiveyouup.mp3') }}"))
-        var letsgoobassboosted = new Audio(("{{ url_for('static',filename='audio/letsgoo(bass boosted).mp3') }}"))
-        var monstersinctheme = new Audio(("{{ url_for('static',filename='audio/Monsters Inc theme (full).mp3') }}"))
-        var beatit = new Audio(("{{ url_for('static',filename='audio/beatit.mp3') }}"))
-        var peepeepoopoo = new Audio(("{{ url_for('static',filename='audio/peepeepoopoo.mp3') }}"))
-        var shreksophone = new Audio(("{{ url_for('static',filename='audio/Shreksophone.mp3') }}"))
-        var beannz = new Audio(("{{ url_for('static',filename='audio/beannz.mp3') }}"))
-        var thomasthetank = new Audio(("{{ url_for('static',filename='audio/thomasthetank(earape).mp3') }}"))
-        var monsterincbassboosted = new Audio(("{{ url_for('static',filename='audio/monster inc(bass boosted).mp3') }}"))
-        var homeflow = new Audio(("{{ url_for('static',filename='audio/homeflow.mp3') }}"))
+        
+        var indianPanini = new Audio("audio/indianPanini.mp3");
+        var indianMontero = new Audio("audio/indianmontero.mp3")
+        var dora = new Audio("audio/dora.mp3")
+        var sickmodestart = new Audio("audio/sickomodesoundfx.mp3")
+        var nevergonnagiveyouup = new Audio("audio/nevergonnagiveyouup.mp3")
+        var letsgoobassboosted = new Audio("audio/letsgoo(bass boosted).mp3")
+        var monstersinctheme = new Audio("audio/Monsters Inc theme (full).mp3")
+        var beatit = new Audio("audio/beatit.mp3")
+        var peepeepoopoo = new Audio("audio/peepeepoopoo.mp3")
+        var shreksophone = new Audio("audio/Shreksophone.mp3")
+        var beannz = new Audio("audio/beannz.mp3")
+        var thomasthetank = new Audio("audio/thomasthetank(earape).mp3")
+        var monsterincbassboosted = new Audio("audio/monster inc(bass boosted).mp3")
+        var homeflow = new Audio("audio/homeflow.mp3")
 
 
 
