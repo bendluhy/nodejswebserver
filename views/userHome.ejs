@@ -5,7 +5,7 @@
     <link rel="icon" href="/images/icon.png">
     <meta charset="UTF-8">
     <link rel= "stylesheet" type= "text/css" href= "/styles/home.css">
-    <title>User - {{ User }}</title>
+    <title>User - <%= username %></title>
     <style>
 .logout
 {
@@ -28,7 +28,6 @@
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
-<script src="{{url_for('static', filename='scripts/home.js')}}"></script>
      <!--https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
 
@@ -48,16 +47,16 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
     </script>
-        <h1 class="Headline">{{ User }} - Home</h1>
+        <h1 class="Headline"><%= username %> - Home</h1>
 
-        <p>Hello, {{ Nickname }}!</p>
+        <p>Hello, <%= nickname %>!</p>
         <button onClick="location.href = '/'">Home</button>
         <button onClick="location.href = '/blackjack'">Blackjack</button>
         <h2>Account Details</h2>
-        <p>Nickname -> {{ Nickname }}</p>
-        <p>Username -> {{ User }}</p>
-        <p>Account Balance -> {{ Balance }} Benjcoins</p>
-        <p>Access -> {{ Access }} </p>
+        <p>Nickname -> <%= nickname %></p>
+        <p>Username -> <%= username %></p>
+        <p>Account Balance -> <%= balance %> Benjcoins</p>
+        <p>Access -> <%= access %> </p>
         <form action="" method="POST">
             <input class="logout" type="submit" value="Logout">
         </form>
