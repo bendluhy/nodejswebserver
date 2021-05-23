@@ -10,8 +10,7 @@ admin.initializeApp({
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
 });
 database = admin.database();
-firebase.initializeApp(firebaseConfig);
-let database = firebase.database();
+//let database = firebase.database();
 var port = process.env.PORT || 8080;
 
 app.set('views', path.join(__dirname, 'views'))
