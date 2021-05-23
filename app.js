@@ -3,14 +3,14 @@ var app = express();
 var path  = require("path");
 const session = require('express-session')
 var admin = require("firebase-admin");
+var bodyparser = require("body-parser")
 
 
 admin.initializeApp({
   credential: admin.credential.cert("key.json"),
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
 });
-database = admin.database();
-//let database = firebase.database();
+db = admin.database();
 var port = process.env.PORT || 8080;
 
 app.set('views', path.join(__dirname, 'views'))
@@ -22,6 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+app.use(bodyparser.urlencoded({ extended: false }))
 // set the home page route
 app.get('/', function(req, res) {
     res.render("home");
@@ -35,6 +36,11 @@ app.get('/blackjack', function (req, res) {
 })
 app.get("/login", function (req,res) {
     res.render("login");
+})
+app.post("/login",function(req,res){
+    var username = req.body.username
+    var password = req.body.password
+        
 })
 app.get("/games",function (req,res) {
     res.render("games")
