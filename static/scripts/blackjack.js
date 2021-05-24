@@ -23,7 +23,7 @@ var countCards = true;
 var bets = new Bets();
 // Bets Object
 function Bets() {
-    this.pot = "200";
+    this.pot = 500;
     this.bet = 0;
     $('#bet').text(0);
     $('#pot').text('$' + this.pot);
