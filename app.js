@@ -131,6 +131,12 @@ app.get("/parker",function(req,res)
 {
     res.render("parker");
 })
+app.get("/about",function(req,res){
+    var today = new Date();
+    res.render("about",{
+        date: (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear()
+    })
+})
 
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);

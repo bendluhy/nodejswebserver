@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ url_for('static',filename='images/icon.png') }}">
+    <link rel="icon" href="/images/icon.png">
     <meta charset="UTF-8">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/about.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "/styles/about.css">
     <title>Server - About</title>
 </head>
     <body>
@@ -14,8 +14,8 @@
         <br>
         <p>Created 5/2/2021 by Ben Dluhy</p>
         <h2>Code</h2>
-        <p>Uses python with flask framework, html, css and javascript.</p>
-        <p>As of {{ date }} source code is not public.</p>
+        <p>Uses Node JS with express framework, html, css and javascript.</p>
+        <p>As of <%= date %> source code is not public.</p>
         <button onClick="window.location.href = '/'">Home</button>
 
     </body>
