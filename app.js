@@ -23,12 +23,19 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-var loggedIn;
 app.use(bodyparser.urlencoded({ extended: false }))
 
+
+
+
 app.get('/', function(req, res) {
-    res.render("home");
-    loggedIn = false;
+    var ref = db.ref("/Server")
+    ref.on("value", function(snapshot) {
+    res.render("home",{
+        announcement: snapshot.val().announcement,
+        Message: snapshot.val().message
+        });
+    })
 });
 app.get('/blackjack', function (req, res) {
     
@@ -51,7 +58,12 @@ app.post("/login",function(req,res){
     ref.on("value", function(snapshot) {
         if(snapshot.val() == null)
         {
-            console.log("No account")
+            res.render("boiler",{
+                title: "Error",
+                header: "An Error Occured",
+                subhead: "No account under the name \"" + username + "\" exists."
+
+            })
         }
         else if (snapshot.val().password == password)
         {
@@ -65,6 +77,22 @@ app.post("/login",function(req,res){
             }
             loggedIn = true;
             res.redirect("/user/home")
+        }
+        else if (snapshot.val().password != password)
+        {
+            res.render("boiler",{
+                title: "Error",
+                header: "An Error Occured",
+                subhead: "Your password is incorrect"
+            })
+        }
+        else
+        {
+            res.render("boiler",{
+                title: "Error",
+                header: "An Error Occured",
+                subhead: "Contact Benji as of this should not happen."
+            })  
         }
         
       }, function (errorObject) {
@@ -82,7 +110,7 @@ app.get("/signup",function (req,res) {
     res.render("signup")
 })
 app.get("/music/request",function (req,res) {
-    res.render("games")
+    res.render("songRequest")
 })
 app.get("/user/home",function(req,res)
 {
@@ -95,8 +123,8 @@ app.get("/user/home",function(req,res)
         res.redirect("/login")
     }
 })
+
 app.get("/music",function (req,res) {
-    console.log(database.ref("/Users/bendluhy/password").get())
     res.render("music")
 })
 app.listen(port, function() {
