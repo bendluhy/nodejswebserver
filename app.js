@@ -127,6 +127,11 @@ app.get("/user/home",function(req,res)
 app.get("/music",function (req,res) {
     res.render("music")
 })
+app.get("/parker",function(req,res)
+{
+    res.render("parker");
+})
+
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });
