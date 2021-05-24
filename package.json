@@ -1,5 +1,5 @@
 {
-  "name": "Node JS Webserver",
+  "name": "nodejswebserver",
   "description": "Rework of webserver in Node JS",
   "main": "app.js",
   "scripts": {
