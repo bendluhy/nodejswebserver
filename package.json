@@ -1,6 +1,6 @@
 {
-  "name": "benjbox",
-  "description": "Benjbox game",
+  "name": "Node JS Webserver",
+  "description": "Rework of webserver in Node JS",
   "main": "app.js",
   "scripts": {
     "start": "nodemon .",
