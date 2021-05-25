@@ -4,6 +4,7 @@ var path  = require("path");
 const session = require('express-session')
 var admin = require("firebase-admin");
 var bodyparser = require("body-parser");
+var io = require("socket.io")
 const { render } = require('ejs');
 
 
@@ -262,7 +263,9 @@ app.post("/user/home",function(req,res)
     delete req.session.user;
     res.redirect("/")
 })
-
+app.get("/chat",function(req,res){
+    res.render("chat")
+})
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });

@@ -60,6 +60,18 @@
         <br>
         <br>
         <button onClick="play('homeflow')">Homo Flow(Requested By Colin)</button>
+        <br>
+        <br>
+        <button onClick="play('dakotasrequest')">Dakota's Request(BE CAREFUL PLAYING 18+)</button>
+        <br>
+        <br>
+        <button onClick="play('heavenlysheesh')">Heavenly Sheesh</button>
+        <br>
+        <br>
+        <button onClick="play('astronautintheocean')">Astrounaut In The Ocean (Full Song)</button>
+        <br>
+        <br>
+        <button onClick="play('indianthebox')">Indian The Box</button>
 
     </body>
 <script>
@@ -79,6 +91,11 @@
         var thomasthetank = new Audio("audio/thomasthetank(earape).mp3")
         var monsterincbassboosted = new Audio("audio/monster inc(bass boosted).mp3")
         var homeflow = new Audio("audio/homeflow.mp3")
+        var dakotasrequest = new Audio("audio/dakotasrequest.mp3")
+        var heavenlysheesh  = new Audio("audio/Heavenly sheesh.mp3")
+        var astronautintheocean = new Audio("audio/Masked Wolf - Astronaut in the Ocean.mp3")
+        var indianthebox = new Audio("audio/Indian The Box - DripReport.mp3")
+
 
 
 
@@ -283,6 +300,62 @@
                         else
                         {
                             homeflow.play();
+                        }
+                        break; 
+                    }
+                    case "dakotasrequest":
+                    {
+                        dakotasrequest.volume = document.getElementById("volume").value / 100
+                        if (dakotasrequest.currentTime > 0)
+                        {
+                            dakotasrequest.currentTime = 0;
+                            dakotasrequest.pause();
+                        }
+                        else
+                        {
+                            dakotasrequest.play();
+                        }
+                        break; 
+                    }
+                    case "heavenlysheesh":
+                    {
+                        heavenlysheesh.volume = document.getElementById("volume").value / 100
+                        if (heavenlysheesh.currentTime > 0)
+                        {
+                            heavenlysheesh.currentTime = 0;
+                            heavenlysheesh.pause();
+                        }
+                        else
+                        {
+                            heavenlysheesh.play();
+                        }
+                        break; 
+                    }
+                    case "astronautintheocean":
+                    {
+                        astronautintheocean.volume = document.getElementById("volume").value / 100
+                        if (astronautintheocean.currentTime > 0)
+                        {
+                            astronautintheocean.currentTime = 0;
+                            astronautintheocean.pause();
+                        }
+                        else
+                        {
+                            astronautintheocean.play();
+                        }
+                        break; 
+                    }
+                    case "indianthebox":
+                    {
+                        indianthebox.volume = document.getElementById("volume").value / 100
+                        if (indianthebox.currentTime > 0)
+                        {
+                            indianthebox.currentTime = 0;
+                            indianthebox.pause();
+                        }
+                        else
+                        {
+                            indianthebox.play();
                         }
                         break; 
                     }
