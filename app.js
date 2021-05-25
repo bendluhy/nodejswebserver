@@ -266,6 +266,14 @@ app.post("/user/home",function(req,res)
 app.get("/chat",function(req,res){
     res.render("chat")
 })
+app.get("/games/swingtriangle",function(req,res)
+{
+    res.render("swingtriangle")
+})
+app.get("/games/chess",function(req,res)
+{
+    res.render("chess")
+})
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });
