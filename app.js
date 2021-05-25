@@ -274,6 +274,18 @@ app.get("/games/chess",function(req,res)
 {
     res.render("chess")
 })
+/*
+*KEEP AS LAST ROUTE
+*404 ROUTE
+*/
+app.get("*",function(req,res)
+{
+    res.status(404).render("boiler",{
+        header: "Page Not Found",
+        title: "Server - Page Not Found",
+        subhead: "Sorry I Fidn't Find A Page Here"
+    })
+})
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });
