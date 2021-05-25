@@ -110,7 +110,65 @@ app.get("/signup",function (req,res) {
     res.render("signup")
 })
 app.get("/music/request",function (req,res) {
-    res.render("songRequest")
+    if (req.session.user)
+    {
+        res.render("songRequest")
+    }
+    else
+    {
+        res.redirect("/login")
+    }
+})
+app.post("/music/request",function(req,res)
+{
+    //COPY LOGIN FROM ERROR REPORT
+    if (req.session.user)
+    {
+        var error = false;
+        var today = new Date();
+        var song = req.body.song
+        var link = req.body.songLink
+        var artist = req.body.artist
+        var ref = db.ref("/Server/music/requests/")
+        if (song == "")
+        {
+            res.render("boiler",{
+                header: "An Error Occured",
+                title: "Error",
+                subhead: "You did not enter a song name"
+            })
+            error = true;
+        }
+        if (link == "")
+        {
+            link = "No Link Submitted"
+        }
+        if (artist == "")
+        {
+            artist = "No Artist Submitted"
+        }
+        if (!error)
+        {
+            var child = ref.child(song)
+            child.set({
+                "Username": req.session.user.username,
+                "Song": song,
+                "Link":link,
+                "Artist": artist,
+                "Time": today.getHours() + ":" + today.getMinutes(),
+                "Date": (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear()
+                })
+            res.render("boiler",{
+                title: "Thank You",
+                header: "Your song request has been submitted",
+                subhead: "Thank You, " + req.session.user.username + "!"
+            }) 
+        }
+    }
+    else
+    {
+        res.redirect("/login")
+    }
 })
 app.get("/user/home",function(req,res)
 {
@@ -137,6 +195,62 @@ app.get("/about",function(req,res){
         date: (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear()
     })
 })
+app.get("/reporterror",function(req,res)
+{
+    if (req.session.user)
+    {
+        res.render("errorReport")
+    }
+    else
+    {
+        res.redirect("/login")
+    }
+})
+app.post("/reporterror",function(req,res)
+{
+    if (req.session.user)
+    {
+    var error = false;
+    var today = new Date();
+    var err = req.body.error
+    var description = req.body.description
+    var ref = db.ref("/Server/Errors/Reports/")
+    if (err == "")
+    {
+        error = true;
+    }
+    if (error)
+    {
+        res.render("boiler",{
+            title: "Error",
+            header: "An Error Occured",
+            subhead: "You did not enter an error"
+        })
+    }
+    else if (!error)
+    {
+        var child = ref.child(err)
+        child.set({
+            "Username": req.session.user.username,
+            "Error": err,
+            "Description":description,
+            "Time": today.getHours() + ":" + today.getMinutes(),
+            "Date": (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear()
+            })
+            res.render("boiler",{
+                title: "Thank You",
+                header: "Your error has been submitted",
+                subhead: "Thank You, " + req.session.user.username + "!"
+            })
+        }
+    }
+    else
+    {
+        
+        res.redirect("/login")
+    }
+})
+
 
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
