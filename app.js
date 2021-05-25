@@ -45,7 +45,7 @@ app.get('/blackjack', function (req, res) {
     }
     else
     {
-        res.redirect("/login")
+        res.redirect("/login?origin=/blackjack")
     }
 })
 app.get("/login", function (req,res) {
@@ -76,7 +76,14 @@ app.post("/login",function(req,res){
                 access: snapshot.val().access
             }
             loggedIn = true;
-            res.redirect("/user/home")
+            if (req.query.origin)
+            {
+                res.redirect(req.query.origin)
+            }
+            else
+            {
+                res.redirect("/user/home")
+            }
         }
         else if (snapshot.val().password != password)
         {
@@ -116,7 +123,7 @@ app.get("/music/request",function (req,res) {
     }
     else
     {
-        res.redirect("/login")
+        res.redirect("/login?origin=/music/request")
     }
 })
 app.post("/music/request",function(req,res)
@@ -167,7 +174,7 @@ app.post("/music/request",function(req,res)
     }
     else
     {
-        res.redirect("/login")
+        res.redirect("/login?origin=/songrequest")
     }
 })
 app.get("/user/home",function(req,res)
@@ -203,7 +210,7 @@ app.get("/reporterror",function(req,res)
     }
     else
     {
-        res.redirect("/login")
+        res.redirect("/login?origin=/reporterror")
     }
 })
 app.post("/reporterror",function(req,res)
@@ -247,10 +254,14 @@ app.post("/reporterror",function(req,res)
     else
     {
         
-        res.redirect("/login")
+        res.redirect("/login?origin=/reporterror")
     }
 })
-
+app.post("/user/home",function(req,res)
+{
+    delete req.session.user;
+    res.redirect("/")
+})
 
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
