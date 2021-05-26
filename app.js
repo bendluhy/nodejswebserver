@@ -117,7 +117,14 @@ app.get("/dev",function (req,res) {
     {
         if (req.session.user.isDev)
         {
-            res.render("dev")
+            ref = db.ref("/Server")
+            ref.on("value", function(snapshot) {
+            res.render("dev",
+                {
+                    announcement: snapshot.val().announcement,
+                    message: snapshot.val().message
+                })
+            })
         }
         else
         {
@@ -132,6 +139,21 @@ app.get("/dev",function (req,res) {
     {
         res.redirect("/login?origin=/dev")
     }
+})
+app.post("/dev",function(req,res)
+{
+    var ref = db.ref("/Server/")
+    if (req.body.announcement != "")
+    {
+        var child = ref.child("announcement")
+        child.set(req.body.announcement)
+    }
+    if (req.body.message != "")
+    {
+        var child = ref.child("message")
+        child.set(req.body.message)
+    }
+    res.redirect("/dev")
 })
 app.get("/signup",function (req,res) {
     res.render("signup")

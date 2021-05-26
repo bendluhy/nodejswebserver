@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/dev.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/icon.png">
     <meta charset="UTF-8">
@@ -10,6 +11,18 @@
     <title>Server - Dev</title>
 </head>
     <body>
-        <h1 class="Headline">Working On This Page</h1>
+        <form method="post" action="">
+            <h1 class="Headline">Developers Page</h1>
+            <p>Home Page Progress Message: <%= message %></p>
+            <p>Home Page Announcement: <%= announcement %></p>
+            <p>Leave Empty If You Don't Want To Edit It</p>
+            <h2>Announcement</h2>
+            <input name="announcement">
+            <h2>Progress Message</h2>
+            <input  name="message">
+            <br>
+            <br>
+            <input class="a" type="submit" value="Change">
+        </form>
     </body>
 </html>

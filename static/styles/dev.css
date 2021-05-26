@@ -4,19 +4,19 @@ p
     font-family: 'Nunito', sans-serif;
     
 }
-.Headline
+.Headline, h2
 {
     font-family: 'Nunito', sans-serif;
     border-bottom: solid 2px;
 }
-button
+button, .a
 {
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
     color: black;
     border-width: 3px;
 }
-button:hover
+button:hover, .a:hover
 {
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
