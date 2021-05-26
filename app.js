@@ -74,7 +74,8 @@ app.post("/login",function(req,res){
                 password: snapshot.val().password,
                 balance: snapshot.val().balance,
                 nickname: snapshot.val().name,
-                access: snapshot.val().access
+                access: snapshot.val().access,
+                isDev: snapshot.val().isDev
             }
             loggedIn = true;
             if (req.query.origin)
@@ -112,14 +113,46 @@ app.get("/games",function (req,res) {
     res.render("games")
 })
 app.get("/dev",function (req,res) {
-    res.render("dev")
-})
-app.post("/dev",function(req,res)
-{
-
+    if (req.session.user)
+    {
+        if (req.session.user.isDev)
+        {
+            res.render("dev")
+        }
+        else
+        {
+            res.render("boiler",{
+                title: "Server - Dev Error",
+                header: "You are not a developer",
+                subhead: "Contact Benji if you think this is an error"
+            })
+        }
+    }
+    else
+    {
+        res.redirect("/login?origin=/dev")
+    }
 })
 app.get("/signup",function (req,res) {
     res.render("signup")
+})
+app.post("/signup", function(req,res)
+{
+    var ref = db.ref("/Users/")
+    var child = ref.child(req.body.username)
+        child.set({
+            "username": req.body.username,
+            "password": req.body.password,
+            "name": req.body.nickname,
+            "balance": 0,
+            "isDev": false,
+            "access": "user"
+            })
+            res.render("boiler",{
+                title: "Signed Up",
+                header: "Thank You, " + req.body.username + "!",
+                subhead: "Your account has been created, go to the home page and login to login!"
+            })
 })
 app.get("/music/request",function (req,res) {
     if (req.session.user)
@@ -186,7 +219,16 @@ app.get("/user/home",function(req,res)
 {
     if (req.session.user)
     {
-        res.render("userHome",req.session.user)
+        var ref = db.ref("/User/"+req.session.user.username + "/")
+        ref.on("value", function(snapshot) {
+            res.render("userHome",
+            {
+                username: req.session.user.username,
+                balance: req.session.user.balance,
+                access: req.session.user.access,
+                nickname: req.session.user.nickname
+            })
+        })
     }
     else
     {
