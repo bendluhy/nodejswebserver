@@ -114,6 +114,10 @@ app.get("/games",function (req,res) {
 app.get("/dev",function (req,res) {
     res.render("dev")
 })
+app.post("/dev",function(req,res)
+{
+
+})
 app.get("/signup",function (req,res) {
     res.render("signup")
 })
@@ -202,6 +206,10 @@ app.get("/about",function(req,res){
     res.render("about",{
         date: (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear()
     })
+})
+app.get("/games/run",function(req,res)
+{
+    res.render("run3")
 })
 app.get("/reporterror",function(req,res)
 {
