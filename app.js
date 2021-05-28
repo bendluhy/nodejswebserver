@@ -350,6 +350,10 @@ app.get("/games/chess",function(req,res)
 *KEEP AS LAST ROUTE
 *404 ROUTE
 */
+app.get("/howtocode",function(req,res)
+{
+    res.render("howtocode")
+})
 app.get("*",function(req,res)
 {
     res.status(404).render("boiler",{
