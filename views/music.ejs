@@ -72,6 +72,9 @@
         <br>
         <br>
         <button onClick="play('indianthebox')">Indian The Box</button>
+        <br>
+        <br>
+        <button onClick="play('rollinginthedeep')">Rolling Down In The Deep(Without beginning)</button>
 
     </body>
 <script>
@@ -95,6 +98,7 @@
         var heavenlysheesh  = new Audio("audio/Heavenly sheesh.mp3")
         var astronautintheocean = new Audio("audio/Masked Wolf - Astronaut in the Ocean.mp3")
         var indianthebox = new Audio("audio/Indian The Box - DripReport.mp3")
+        var rollinginthedeep = new Audio("audio/rollinginthedeep.mp3")
 
 
 
@@ -356,6 +360,20 @@
                         else
                         {
                             indianthebox.play();
+                        }
+                        break; 
+                    }
+                    case "rollinginthedeep":
+                    {
+                        rollinginthedeep.volume = document.getElementById("volume").value / 100
+                        if (rollinginthedeep.currentTime > 0)
+                        {
+                            rollinginthedeep.currentTime = 0;
+                            rollinginthedeep.pause();
+                        }
+                        else
+                        {
+                            rollinginthedeep.play();
                         }
                         break; 
                     }
