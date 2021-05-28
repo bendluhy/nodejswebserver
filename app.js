@@ -1,24 +1,24 @@
 var express = require('express');
 var app = express();
 var path  = require("path");
+const http = require('http').Server(app);
 const session = require('express-session')
 var admin = require("firebase-admin");
 var bodyparser = require("body-parser");
-var io = require("socket.io")(3000, {
+const io = require('socket.io')(http,{
     cors: {
 		origin: true, // true means to use any frontend.
 	},
 })
+const port = process.env.PORT || 3000;
 const { render } = require('ejs');
-
+//a
 const users = {}
 admin.initializeApp({
   credential: admin.credential.cert("key.json"),
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
 });
 db = admin.database();
-var port = process.env.PORT || 8080;
-
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
@@ -386,6 +386,6 @@ app.get("*",function(req,res)
         subhead: "Sorry I Fidn't Find A Page Here"
     })
 })
-app.listen(port, function() {
+http.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });
