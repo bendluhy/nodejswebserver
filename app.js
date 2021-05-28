@@ -4,10 +4,14 @@ var path  = require("path");
 const session = require('express-session')
 var admin = require("firebase-admin");
 var bodyparser = require("body-parser");
-var io = require("socket.io")
+var io = require("socket.io")(3000, {
+    cors: {
+		origin: true, // true means to use any frontend.
+	},
+})
 const { render } = require('ejs');
 
-
+const users = {}
 admin.initializeApp({
   credential: admin.credential.cert("key.json"),
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
@@ -337,6 +341,13 @@ app.post("/user/home",function(req,res)
 })
 app.get("/chat",function(req,res){
     res.render("chat")
+
+
+
+
+
+
+
 })
 app.get("/games/swingtriangle",function(req,res)
 {
@@ -350,6 +361,19 @@ app.get("/games/chess",function(req,res)
 *KEEP AS LAST ROUTE
 *404 ROUTE
 */
+io.on('connection', socket => {
+    socket.on('new-user', name => {
+      users[socket.id] = name
+      socket.broadcast.emit('user-connected', name)
+    })
+    socket.on('send-chat-message', message => {
+      socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
+    })
+    socket.on('disconnect', () => {
+      socket.broadcast.emit('user-disconnected', users[socket.id])
+      delete users[socket.id]
+    })
+  })
 app.get("/howtocode",function(req,res)
 {
     res.render("howtocode")
