@@ -10,7 +10,7 @@ const io = require('socket.io')(http,{
 		origin: true, // true means to use any frontend.
 	},
 })
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const { render } = require('ejs');
 //a
 const users = {}
