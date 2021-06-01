@@ -75,6 +75,15 @@
         <br>
         <br>
         <button onClick="play('rollinginthedeep')">Rolling Down In The Deep(Without beginning)</button>
+        <br>
+        <br>
+        <button onClick="play('oceanman')">Roblox Ocean Man</button>
+        <br>
+        <br>
+        <button onClick="play('dream')">Dream Song Sus Remix</button>
+        <br>
+        <br>
+        <button onClick="play('hogrider')">HOG RIDER</button>
 
     </body>
 <script>
@@ -99,6 +108,9 @@
         var astronautintheocean = new Audio("audio/Masked Wolf - Astronaut in the Ocean.mp3")
         var indianthebox = new Audio("audio/Indian The Box - DripReport.mp3")
         var rollinginthedeep = new Audio("audio/rollinginthedeep.mp3")
+        var oceanman = new Audio("audio/Ocean man “Roblox Edition”.mp3")
+        var dream = new Audio("audio/Dream - Mask (Official Sus Remix).mp3")
+        var hogrider = new Audio("audio/Hog Rider Sound Effect.mp3")
 
 
 
@@ -374,6 +386,48 @@
                         else
                         {
                             rollinginthedeep.play();
+                        }
+                        break; 
+                    }
+                    case "oceanman":
+                    {
+                        oceanman.volume = document.getElementById("volume").value / 100
+                        if (oceanman.currentTime > 0)
+                        {
+                            oceanman.currentTime = 0;
+                            oceanman.pause();
+                        }
+                        else
+                        {
+                            oceanman.play();
+                        }
+                        break; 
+                    }
+                    case "dream":
+                    {
+                        dream.volume = document.getElementById("volume").value / 100
+                        if (dream.currentTime > 0)
+                        {
+                            dream.currentTime = 0;
+                            dream.pause();
+                        }
+                        else
+                        {
+                            dream.play();
+                        }
+                        break; 
+                    }
+                    case "hogrider":
+                    {
+                        hogrider.volume = document.getElementById("volume").value / 100
+                        if (hogrider.currentTime > 0)
+                        {
+                            hogrider.currentTime = 0;
+                            hogrider.pause();
+                        }
+                        else
+                        {
+                            hogrider.play();
                         }
                         break; 
                     }

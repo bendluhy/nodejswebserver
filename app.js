@@ -279,6 +279,10 @@ app.get("/games/run",function(req,res)
 {
     res.render("run3")
 })
+app.get("/amongus",function(req,res)
+{
+    res.render("amongus")
+})
 app.get("/reporterror",function(req,res)
 {
     if (req.session.user)
