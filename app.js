@@ -1,11 +1,11 @@
 var express = require('express');
-var app = express();
 var path  = require("path");
 const session = require('express-session')
 var admin = require("firebase-admin");
 var bodyparser = require("body-parser");
 var socketIO = require("socket.io")
 const { render } = require('ejs');
+var app = express();
 
 const users = {}
 admin.initializeApp({
@@ -14,7 +14,6 @@ admin.initializeApp({
 });
 db = admin.database();
 var port = process.env.PORT || 8080;
-const io = socketIO(app)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
@@ -366,19 +365,7 @@ app.get("/games/chess",function(req,res)
 *KEEP AS LAST ROUTE
 *404 ROUTE
 */
-io.on('connection', (socket) => {
-    socket.on('new-user', name => {
-      users[socket.id] = name
-      socket.broadcast.emit('user-connected', name)
-    })
-    socket.on('send-chat-message', message => {
-      socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
-    })
-    socket.on('disconnect', () => {
-      socket.broadcast.emit('user-disconnected', users[socket.id])
-      delete users[socket.id]
-    })
-  })
+
 app.get("/howtocode",function(req,res)
 {
     res.render("howtocode")
@@ -394,3 +381,17 @@ app.get("*",function(req,res)
 app.listen(port, function() {
     console.log('Webserver is running on http://localhost:' + port);
 });
+const io = socketIO(app)
+io.on('connection', (socket) => {
+    socket.on('new-user', name => {
+      users[socket.id] = name
+      socket.broadcast.emit('user-connected', name)
+    })
+    socket.on('send-chat-message', message => {
+      socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
+    })
+    socket.on('disconnect', () => {
+      socket.broadcast.emit('user-disconnected', users[socket.id])
+      delete users[socket.id]
+    })
+  })
