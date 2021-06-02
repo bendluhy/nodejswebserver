@@ -4,11 +4,7 @@ var path  = require("path");
 const session = require('express-session')
 var admin = require("firebase-admin");
 var bodyparser = require("body-parser");
-var io = require("socket.io")(3000, {
-    cors: {
-		origin: true, // true means to use any frontend.
-	},
-})
+var socketIO = require("socket.io")
 const { render } = require('ejs');
 
 const users = {}
@@ -18,7 +14,7 @@ admin.initializeApp({
 });
 db = admin.database();
 var port = process.env.PORT || 8080;
-
+const io = socketIO(app)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
@@ -53,6 +49,10 @@ app.get('/blackjack', function (req, res) {
     {
         res.redirect("/login?origin=/blackjack")
     }
+})
+app.get("/games/mycustomgame",function(req,res)
+{
+    res.render("game")
 })
 app.get("/login", function (req,res) {
     res.render("login");
@@ -366,7 +366,7 @@ app.get("/games/chess",function(req,res)
 *KEEP AS LAST ROUTE
 *404 ROUTE
 */
-io.on('connection', socket => {
+io.on('connection', (socket) => {
     socket.on('new-user', name => {
       users[socket.id] = name
       socket.broadcast.emit('user-connected', name)
