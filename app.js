@@ -13,8 +13,7 @@ admin.initializeApp({
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
 });
 db = admin.database();
-var port = process.env.PORT || 8080;
-const io = socketIO(app)
+var port = process.env.PORT || 3000;
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
@@ -23,7 +22,7 @@ app.use(session({
     secret: "ALoghsdgojnAJN",
     resave: false,
     saveUninitialized: false
-}))
+}))    
 app.use(bodyparser.urlencoded({ extended: false }))
 
 
@@ -366,6 +365,23 @@ app.get("/games/chess",function(req,res)
 *KEEP AS LAST ROUTE
 *404 ROUTE
 */
+
+app.get("/howtocode",function(req,res)
+{
+    res.render("howtocode")
+})
+app.get("*",function(req,res)
+{
+    res.status(404).render("boiler",{
+        header: "Page Not Found",
+        title: "Server - Page Not Found",
+        subhead: "Sorry I Fidn't Find A Page Here"
+    })
+})
+var server = app.listen(port, function() {
+    console.log('Webserver is running on http://localhost:' + port);
+});
+var io = socketIO(server);
 io.on('connection', (socket) => {
     socket.on('new-user', name => {
       users[socket.id] = name
@@ -379,18 +395,3 @@ io.on('connection', (socket) => {
       delete users[socket.id]
     })
   })
-app.get("/howtocode",function(req,res)
-{
-    res.render("howtocode")
-})
-app.get("*",function(req,res)
-{
-    res.status(404).render("boiler",{
-        header: "Page Not Found",
-        title: "Server - Page Not Found",
-        subhead: "Sorry I Fidn't Find A Page Here"
-    })
-})
-app.listen(port, function() {
-    console.log('Webserver is running on http://localhost:' + port);
-});
