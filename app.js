@@ -42,11 +42,12 @@ app.get('/', function(req, res) {
         });
     })
 });
+
 app.get('/blackjack', function (req, res) {
     
     if (req.session.user)
     {
-        res.render("blackjack")
+        res.render("blackjack",{user: req.session.user.username})
     }
     else
     {

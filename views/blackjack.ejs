@@ -7,10 +7,19 @@
   src="https://code.jquery.com/jquery-3.2.0.slim.min.js"
   integrity="sha256-qLAv0kBAihcHZLI3fv3WITKeRsUX27hd6upBBa0MSow="
   crossorigin="anonymous"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
         <link rel="icon" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1151732/chip.png">
         <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+<script>
+    var username = "<%= user %>"
+    
+</script>
 
 
         <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
@@ -54,7 +63,7 @@
             <br>
             <br>
             <br>
-            <button id="leave" class="leave">Leave And Take Earnings</button>
+            <button onclick="saveandleave()" id="leave" class="leave">Leave And Take Earnings</button>
         </div>
     <div class="betting">
             <div class="bet-square">

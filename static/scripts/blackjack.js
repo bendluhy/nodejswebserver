@@ -10,10 +10,16 @@
     appId: "1:521414194806:web:b1775d90b629630d2f1157",
     measurementId: "G-3FLV635JCE"
   };
+
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-console.log(name)
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+db = firebase.database();
+ref = db.ref("/Users/" + username);
+ref.on("value", function(snapshot) {
+  balance = snapshot.val().balance;
+})
 var dealerHand = [];
 var playerHand = [];
 var currentHand;
@@ -439,3 +445,7 @@ $(function () {
     // welcome();
 
 }); // End DOM Ready
+function saveandleave()
+{
+  
+}
