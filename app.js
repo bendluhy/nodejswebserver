@@ -13,7 +13,7 @@ admin.initializeApp({
   databaseURL: "https://benji-s-webserver-database-default-rtdb.firebaseio.com"
 });
 db = admin.database();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
@@ -344,14 +344,18 @@ app.post("/user/home",function(req,res)
     res.redirect("/")
 })
 app.get("/chat",function(req,res){
-    res.render("chat")
-
-
-
-
-
-
-
+    if (req.session.user)
+    {
+        res.render("chat",
+        {
+            nickname: req.session.user.nickname,
+            username: req.session.user.username
+        })
+    }
+    else
+    {
+        res.redirect("/login?origin=/chat")
+    }
 })
 app.get("/games/swingtriangle",function(req,res)
 {
