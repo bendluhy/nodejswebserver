@@ -70,6 +70,17 @@ app.post("/login",function(req,res){
 
             })
         }
+        else if (snapshot.val().banned)
+        {
+            if(snapshot.val().banned == true)
+            {
+                res.render("boiler",{
+                    header: "You are banned",
+                    subhead: "This account is banned",
+                    title: "Banned"
+                })
+            }
+        }
         else if (snapshot.val().password == password)
         {
             req.session.user = 
