@@ -191,6 +191,18 @@ app.post("/signup", function(req,res)
                 subhead: "Your account has been created, go to the home page and login to login!"
             })
 })
+app.get("/updatelog",function (req,res)
+{
+    data = {
+        a: "a",
+        b: "b",
+        c: "c"
+    }
+    res.render("updateLog", 
+    {
+        data:data
+    });
+})
 app.get("/music/request",function (req,res) {
     if (req.session.user)
     {

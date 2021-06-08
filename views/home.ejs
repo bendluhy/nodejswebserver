@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/icon.png">
     <meta charset="UTF-8">
     <link rel= "stylesheet" type= "text/css" href= "/styles/home.css">
@@ -15,8 +14,8 @@
      <!--https://firebase.google.com/docs/web/setup#available-libraries -->
         <h1 class="Headline">Welcome</h1>
         
-        <p>Welcome to Benji's Web Server</p>
-        <div id="infoBox">
+        <p id="welcome">Welcome to Benji's Web Server</p>
+        <div style="text-align: center;" id="infoBox">
             <br>
             <p>Annoucement: <%= announcement %></p>
             <p>Progress Message: <%= Message %></p>
@@ -55,4 +54,7 @@
             <button onClick="window.location.href = '/about'">About</button>
         </div>
     </body>
+    <footer id="footer">
+        &copy; 2021 Benji Corporation
+    </footer>
 </html>
