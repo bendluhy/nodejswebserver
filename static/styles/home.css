@@ -78,8 +78,7 @@ button:hover
 {
     font-family: "Nunito", sans-serif;
     border: solid 2px black;
-    width: 35%;
-    height: 15%;
+
     border-radius: 15px;
     text-align: center;
     margin: auto;
@@ -88,8 +87,7 @@ button:hover
 {
     backdrop-filter: blur(5px);
     border: solid 2px black;
-    height: 55%;
-    width: 17%;
+
     border-radius: 15px;
     margin: auto;
     text-align: center;
