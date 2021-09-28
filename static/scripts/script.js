@@ -33,9 +33,3 @@ function appendMessage(message) {
   messageContainer.append(messageElement)
   scrollSmoothToBottom(messageElement.id)
 }
-function scrollSmoothToBottom (id) {
-  var div = document.getElementById(id);
-  $('#' + id).animate({
-     scrollTop: div.scrollHeight - div.clientHeight
-  }, 500);
-}
